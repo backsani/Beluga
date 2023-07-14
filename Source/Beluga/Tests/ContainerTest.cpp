@@ -67,7 +67,7 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FBelugaSetTest, "Beluga.Set", \
 
 	bool FBelugaSetTest::RunTest(const FString& Parameters)
 {
-	TSet<FString> set = {TEXT("Durian"), TEXT("Grape")};
+	TSet<FString> set = {TEXT("Durian"), TEXT("Fig")};
 	int32 startResult = set.Num();
 	TestEqual(TEXT("FAIL result : Num"), startResult, 2);
 	set.Add("Apple");
