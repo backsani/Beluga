@@ -81,30 +81,27 @@ bool FBelugaStringTest::RunTest(const FString& Parameters)
 		TestEqual(TEXT("FAIL result : RemoveAtFun"), result, 2);
 
 	}
-	//Format, Print사용하기
-	/*{
-		FString FormattedString = FString::Format(TEXT("Hello %s, your score is %d!"), TEXT("John"), 100);
+	//대문자로 변환, 소문자로 변환
+	{
 		FString str(TEXT("rabbit"));
-		str.Printf();
-		TestEqual(TEXT("FAIL result : RemoveAtFun"), result, 2);
-		
-	}*/
-	//FString FormattedString = FString::Format(TEXT("Hello %s, your score is %d!"), TEXT("John"), 100);
+		FString result = str.ToUpper();
+		TestEqual(TEXT("FAIL result : change Upper"), result, TEXT("RABBIT"));
 
-
-
-
-
-	//Shrink 사용하기
-	/*{
+		result = str.ToLower();
+		TestEqual(TEXT("FAIL result : change Lowwer"), result, TEXT("rabbit"));
+	}
+	//Operator 사용하기
+	{
+		FString str1(TEXT("rabbit"));
+		FString str2(TEXT("jump"));
+		TestEqual(TEXT("FAIL result : size operator"), true , str1 > str2);
+	}
+	//Printf 사용하기
+	{
 		FString str(TEXT("rabbit"));
-		str.Shrink();
-		TestEqual(TEXT("FAIL result : rabbit"), str, "rabbit");
-	}*/
-
-	//		AddError(FString::Printf(TEXT("Expected '%s' to be true."), What), 1);
-	//		TestEqual(TEXT("Operator []"), strApple[0], L'A');
-
+		int miter = 1;
+		TestEqual(TEXT("FAIL result : Printf"), FString::Printf(TEXT("%s can jump %d miter"), *str,  miter), TEXT("rabbit can jump 1 miter"));
+	}
 
 	/*FString strChar("char");
 	FString strWChar(L"wchar");
@@ -119,39 +116,6 @@ bool FBelugaStringTest::RunTest(const FString& Parameters)
 	return true;
 }
 
-// 생성
-		// char		"asdf"
-		// wchar	L"asdf"
-		// tchar	TEXT("asdf")
-
-	// 대입 연산자 = 
-
-	// Printf
-
-	// Format
-		// FStringFormatNamedArguments
-		// FStringFormatOrderedArguments
-
-	// operator []
-
-	// 대소비교
-
-	// TCHAR* 얻기
-	// operator*
-
-	// 길이 구하기
-
-	// Replace
-
-	// Insert
-
-	// clear
-
-	// Split
-
-	// IsEmpty
-
-	// Shrink
 
 //	//TArray<int32> ValArr;
 //int32 Temp[] = { 10, 20, 30, 5, 10, 15, 20, 25, 30 };
@@ -161,110 +125,3 @@ bool FBelugaStringTest::RunTest(const FString& Parameters)
 //ValArr.Remove(20);
 // ValArr == [10,30,5,10,15,25,30] 
 
-	//RemoveAt
-
-	// find 로 인덱스
-
-	
-
-	// 대문자로 변환, 소문자로 변환
-
-// Printf
-// Format
-	//FStringFormatNamedArguments
-	//FStringFormatOrderedArguments
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//IMPLEMENT_SIMPLE_AUTOMATION_TEST(FBelugaStringTest, "Beluga.String", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::EngineFilter)
-//
-//bool FBelugaStringTest::RunTest(const FString& Parameters)
-//{
-//	// 생성, 대입
-//	{
-//		FString strChar("char");
-//		FString strWChar(L"wchar");
-//		FString strTChar(TEXT("wchar"));
-//
-//		strChar = "char";
-//		strWChar = "wchar";
-//		strTChar = TEXT("wchar");
-//	}
-//
-//	// Printf
-//	{
-//		TestEqual(TEXT("Printf"), FString::Printf(TEXT("%d %f %s"), 123, 1.0f, TEXT("string")), TEXT("123 1.000000 string"));
-//	}
-//
-//	// Format
-//	{
-//		{
-//			FStringFormatNamedArguments NamedArgs;
-//			NamedArgs.Add(TEXT("First"), 123);
-//			NamedArgs.Add(TEXT("Second"), 1.0f);
-//			NamedArgs.Add(TEXT("Third"), TEXT("string"));
-//
-//			TestEqual(TEXT("FormatNamedArguments"), FString::Format(TEXT("{First} {Second} {Third}"), NamedArgs), TEXT("123 1.000000 string"));
-//		}
-//		
-//		{
-//			FStringFormatOrderedArguments OrderedArgs;
-//			OrderedArgs.Add(123);
-//			OrderedArgs.Add(1.0f);
-//			OrderedArgs.Add(TEXT("string"));
-//			
-//			TestEqual(TEXT("FormatOrderedArgs"), FString::Format(TEXT("{0} {1} {2}"), OrderedArgs), TEXT("123 1.000000 string"));
-//		}
-//	}
-//
-//	FString strApple(TEXT("Apple"));
-//	FString strBanana(TEXT("Banana"));
-//
-//	// Operators
-//	{
-//		// []
-//		{
-//			TestEqual(TEXT("Operator []"), strApple[0], L'A');
-//		}
-//
-//		// < >
-//		{
-//			TestTrue(TEXT("Operator <"), strApple < strBanana);
-//		}
-//	}
-//
-//	return true;
-//}
-//
-//IMPLEMENT_SIMPLE_AUTOMATION_TEST(FBelugaNameTest, "Beluga.Name", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::EngineFilter)
-//
-//bool FBelugaNameTest::RunTest(const FString& Parameters)
-//{
-//	return true;
-//}

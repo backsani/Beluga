@@ -6,19 +6,22 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FBelugaVectorTest, "Beluga.Vector", EAutomation
 bool FBelugaVectorTest::RunTest(const FString& Parameters)
 {
 
+	FVector vec(0.0, 1.0, 0.0);
+	vec.X = 2.0;
+	TestEqual(TEXT("X"), vec, FVector(2.0, 1.0, 0.0));
 
-	FVector vec;
-	FVector vec2 = vec;
+	vec.Y = 5.0;
+	TestEqual(TEXT("Y"), vec, FVector(2.0, 5.0, 0.0));
 
-	vec2 = FVector::UpVector;
-
+	TestEqual(TEXT("Operator"), vec + vec, FVector(4.0, 10.0, 0.0));
 	return true;
 }
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FBelugaRotatorTest, "Beluga.Rotator", EAutomationTestFlags::ApplicationContextMask | EAutomationTestFlags::EngineFilter)
 
-bool FBelugaRotatorTest::RunTest(const FString& Parameters) {
-	FRotator rot(FRotator::ZeroRotator);
+bool FBelugaRotatorTest::RunTest(const FString& Parameters) 
+{
+	
 
 	return true;
 }
