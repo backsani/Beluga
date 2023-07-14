@@ -81,12 +81,20 @@ bool FBelugaStringTest::RunTest(const FString& Parameters)
 		TestEqual(TEXT("FAIL result : RemoveAtFun"), result, 2);
 
 	}
-	/*
-	FString OriginalString = "Hello World! Welcome to Unreal Engine";
-	TArray<FString> SplitArray;
-	OriginalString.Split(SplitArray, TEXT(" "), ESearchCase::CaseSensitive, ESearchDir::FromStart);
+	//Format, Print사용하기
+	/*{
+		FString FormattedString = FString::Format(TEXT("Hello %s, your score is %d!"), TEXT("John"), 100);
+		FString str(TEXT("rabbit"));
+		str.Printf();
+		TestEqual(TEXT("FAIL result : RemoveAtFun"), result, 2);
+		
+	}*/
+	//FString FormattedString = FString::Format(TEXT("Hello %s, your score is %d!"), TEXT("John"), 100);
 
-	*/
+
+
+
+
 	//Shrink 사용하기
 	/*{
 		FString str(TEXT("rabbit"));
