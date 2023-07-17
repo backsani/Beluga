@@ -1,4 +1,6 @@
 #include "BelugaMinimal.h"
+//#include "MyGameMode.h"
+
 DEFINE_LOG_CATEGORY(LogBeluga);
 
 bool isRabbit(FName Check) {
@@ -14,6 +16,7 @@ public:
 	virtual void StartupModule() override
 	{
 		UE_LOG(LogBeluga, Display, TEXT("BelugaModule::StartupModule"));
+
 	}
 	virtual void ShutdownModule() override
 	{
